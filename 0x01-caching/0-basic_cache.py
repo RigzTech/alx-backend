@@ -1,19 +1,26 @@
-sic dictionary that inherits from a base
-caching module
-"""
+#!/usr/bin/env python3
 
-BaseCaching = __import__("base_caching").BaseCaching
+'''Task 0: Basic dictionary
+'''
+
+
+from base_caching import BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """defines 2 methods that inherits from a dict"""
+    '''A class `BasicCache` that inherits from `BaseCaching`
+       and is a caching system
+    '''
+
     def put(self, key, item):
-        """adds item to a dict"""
-        if key and item:
+        '''assign to the dictionary `self.cache_data` the
+           `item` value for the key `key`
+        '''
+        if key is not None and item is not None:
             self.cache_data[key] = item
 
     def get(self, key):
-        """returns a value linked to key"""
-        if key is None or key not in self.cache_data.keys():
-            return None
-        return self.cache_data.get(key)
+        '''return the value in `self.cache_data` linked to `key`
+        '''
+
+        return self.cache_data.get(key, None)
